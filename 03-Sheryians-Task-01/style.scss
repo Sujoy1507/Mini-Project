@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica';
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  font-size: 30px;
+}
+
+%dis-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  @extend %dis-flex;
+  background: linear-gradient(45deg, hsl(0, 0%, 0%), hsl(0, 0%, 20%), hsl(0, 0%, 0%));
+
+  section {
+    height: 85vh;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    grid-template-rows: 1.7fr 1fr;
+    grid-template-areas:
+      "img1 img2 img2 img2"
+      "img1 img3 img4 img5";
+    justify-content: center;
+    align-content: center;
+    gap: 0;
+
+    .img1 {
+      grid-area: img1;
+      border: 3px solid hsl(1, 0%, 100%);
+      background-image: url(./img-01.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .img2 {
+      grid-area: img2;
+      border: 3px solid hsl(1, 0%, 100%);
+      background-image: url(./img-02.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .img3 {
+      grid-area: img3;
+      border: 3px solid hsl(1, 0%, 100%);
+      background-image: url(./img-03.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .img4 {
+      grid-area: img4;
+      border: 3px solid hsl(1, 0%, 100%);
+      background-image: url(./img-04.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .img5 {
+      grid-area: img5;
+      border: 3px solid hsl(1, 0%, 100%);
+      background-image: url(./img-05.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  html {
+    font-size: 25px;
+  }
+  main section{
+    height: 80vh;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  html {
+    font-size: 18px;
+  }
+  main section{
+    height: 60vh;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 600px) {
+  html {
+    font-size: 13px;
+  }
+  main section{
+    height: 35vh;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 8px;
+  }
+  main section{
+    height: 30vh;
+  }
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 5.5px;
+  }
+
+  main section{
+    height: 20vh;
+  }
+}
