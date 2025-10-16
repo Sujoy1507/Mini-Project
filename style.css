@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica";
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .img-section .img2, main nav .logo, main nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  height: 100dvh;
+  width: 100dvw;
+}
+main nav {
+  justify-content: space-between;
+  padding: 1rem;
+}
+main nav .logo {
+  gap: 0.5rem;
+}
+main nav .logo i {
+  font-size: 3.5rem;
+}
+main nav .logo span {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+main nav .menu {
+  rotate: 90deg;
+  font-size: 3.5rem;
+}
+main .text {
+  width: 100%;
+  gap: 1.2rem;
+  align-items: space-between;
+  padding: 1.2rem;
+  background: linear-gradient(#FFC11E, #FF6505);
+}
+main .text h1 {
+  font-size: 4rem;
+  text-align: center;
+  line-height: 1;
+  margin-top: 5rem;
+}
+main .text p {
+  font-size: 1.3rem;
+  text-align: center;
+}
+main .text button {
+  border: 2px solid black;
+  border-radius: 80px;
+  padding: 0.8rem 3rem;
+  background-color: transparent;
+  margin-top: 1rem;
+  margin-bottom: 6rem;
+}
+main .img-section {
+  width: 100%;
+  position: relative;
+}
+main .img-section .img2 {
+  justify-content: space-evenly;
+}
+main .img-section .img2 img {
+  width: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .img-section img {
+  position: absolute;
+  width: 55%;
+  top: -20%;
+}/*# sourceMappingURL=style.css.map */
