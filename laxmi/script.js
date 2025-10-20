@@ -18,3 +18,33 @@ loveOverlay.forEach(heart => {
         setTimeout(() => heart.style.transform = 'translateY(0) scale(1.1)', 250);
     }, 500);
 });
+
+// Touch support for mobile
+const imgWrappers = document.querySelectorAll('.img-wrapper');
+
+imgWrappers.forEach(wrapper => {
+    let touchTimeout;
+
+    wrapper.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        // Show overlay on touch
+        wrapper.querySelector('.love-overlay').style.opacity = '1';
+        
+        // Clear any existing timeout
+        clearTimeout(touchTimeout);
+    });
+
+    wrapper.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        // Hide overlay after 2 seconds of touch end
+        touchTimeout = setTimeout(() => {
+            wrapper.querySelector('.love-overlay').style.opacity = '0';
+        }, 2000);
+    });
+
+    // Optional: hide immediately on touch leave
+    wrapper.addEventListener('touchleave', () => {
+        clearTimeout(touchTimeout);
+        wrapper.querySelector('.love-overlay').style.opacity = '0';
+    });
+});
