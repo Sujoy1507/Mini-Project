@@ -19,32 +19,33 @@ loveOverlay.forEach(heart => {
     }, 500);
 });
 
-// Touch support for mobile
+// Click to toggle overlay
 const imgWrappers = document.querySelectorAll('.img-wrapper');
 
 imgWrappers.forEach(wrapper => {
-    let touchTimeout;
+    let hideTimeout;
+    let isVisible = false;
 
-    wrapper.addEventListener('touchstart', (e) => {
+    wrapper.addEventListener('click', (e) => {
         e.preventDefault();
-        // Show overlay on touch
-        wrapper.querySelector('.love-overlay').style.opacity = '1';
-        
-        // Clear any existing timeout
-        clearTimeout(touchTimeout);
-    });
+        const overlay = wrapper.querySelector('.love-overlay');
 
-    wrapper.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        // Hide overlay after 2 seconds of touch end
-        touchTimeout = setTimeout(() => {
-            wrapper.querySelector('.love-overlay').style.opacity = '0';
-        }, 2000);
-    });
+        if (!isVisible) {
+            // Show overlay
+            overlay.style.opacity = '1';
+            isVisible = true;
 
-    // Optional: hide immediately on touch leave
-    wrapper.addEventListener('touchleave', () => {
-        clearTimeout(touchTimeout);
-        wrapper.querySelector('.love-overlay').style.opacity = '0';
+            // Auto hide after 2 seconds
+            clearTimeout(hideTimeout);
+            hideTimeout = setTimeout(() => {
+                overlay.style.opacity = '0';
+                isVisible = false;
+            }, 2000);
+        } else {
+            // Hide overlay immediately on second click
+            overlay.style.opacity = '0';
+            isVisible = false;
+            clearTimeout(hideTimeout);
+        }
     });
 });
