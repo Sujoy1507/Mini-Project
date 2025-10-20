@@ -2,184 +2,148 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Helvetica';
-    font-weight: 300;
+    font-family: 'Helvetica', sans-serif;
 }
 
 html,
 body {
-    height: 100dvh;
-    width: 100dvw;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 main {
-    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* General sections */
+/* Sections */
 .page01,
 .page02 {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
 }
 
-/* Page 1 */
 .page01 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: #ffe4e6;
-
-    .container {
-        text-align: center;
-        background: #ffb6c1;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
-        animation: float 3s ease-in-out infinite;
-        position: relative;
-        z-index: 1;
-    }
-
-    h1 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-
-    p {
-        font-size: 1.5rem;
-    }
-
-    @keyframes float {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-15px);
-        }
-    }
 }
 
-/* Page 2 */
-.page02 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #ffd1dc;
-
-    .container {
-        text-align: center;
-        position: relative;
-
-        h1 {
-            font-size: 3rem;
-            padding: 1rem;
-            font-family: 'Cursive', sans-serif;
-            margin-bottom: 20px;
-            transition: 0.3s;
-            cursor: pointer;
-
-            &:hover {
-                color: #ff0080;
-                transform: scale(1.1);
-            }
-        }
-
-        .img-wrapper {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-
-            img {
-                width: 300px;
-                height: auto;
-                border-radius: 15px;
-                transition: 0.3s;
-            }
-
-            .love-overlay {
-                position: absolute;
-                top: 10%;
-                left: 10%;
-                width: 80%;
-                height: 80%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 5rem;
-                opacity: 0;
-                transition: 0.5s;
-                pointer-events: none;
-            }
-
-            &:hover .love-overlay {
-                opacity: 1;
-            }
-
-            &:hover img {
-                transform: scale(1.05);
-            }
-        }
-    }
-}
-
-/* Floating bubbles */
-.bubble {
-    position: absolute;
-    bottom: -20px;
-    background: #fff;
-    opacity: 0.7;
-    border-radius: 50%;
-    pointer-events: none;
-    animation-name: rise;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    z-index: 0;
-}
-
-@keyframes rise {
-    0% {
-        transform: translateY(0) scale(0);
-        opacity: 0.7;
-    }
-
-    50% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-110vh) scale(0.5);
-        opacity: 0;
-    }
-}
-
-.text-section {
+.page01 .container {
+    text-align: center;
     background: #ffb6c1;
     padding: 2rem;
     border-radius: 20px;
-    margin: 20px;
-    cursor: pointer;
-    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+    animation: float 3s ease-in-out infinite;
+}
+
+.page01 h1 {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.page01 p {
+    font-size: 1.2rem;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.page02 {
+    background: #ffd1dc;
+}
+
+.page02 .container {
+    text-align: center;
+}
+
+.page02 h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.page02 h1:hover {
+    color: #ff0080;
+    transform: scale(1.05);
+}
+
+.img-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.img-wrapper img {
+    width: 90vw;
+    max-width: 300px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.love-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.img-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.img-wrapper:hover .love-overlay {
+    opacity: 1;
+}
+
+/* Text section */
+.text-section {
+    background: #ffb6c1;
+    padding: 1rem;
+    border-radius: 20px;
+    font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
     transition: 0.3s;
     user-select: none;
-    box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+}
 
-    &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 30px rgba(255, 182, 193, 0.8);
-    }
+.text-section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
+}
+
+/* Emoji spread */
+.spreading-emoji {
+    position: absolute;
+    font-size: 2rem;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    animation: spreadEmoji 3.5s ease-out forwards;
 }
 
 @keyframes spreadEmoji {
@@ -194,9 +158,40 @@ main {
     }
 }
 
-.spreading-emoji {
-    position: fixed;
-    font-size: 3rem;
+@keyframes spinOnly {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* Floating bubbles */
+.bubble {
+    position: absolute;
+    bottom: -20px;
+    background: #fff;
+    opacity: 0.6;
+    border-radius: 50%;
     pointer-events: none;
-    z-index: 9999;
+    animation: rise linear infinite;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(0.5);
+        opacity: 0;
+    }
 }

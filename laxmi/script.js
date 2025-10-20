@@ -1,48 +1,37 @@
 // Floating bubbles
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 20; i++) {
     let bubble = document.createElement('div');
     bubble.className = 'bubble';
-    let size = Math.random() * 15 + 5; // 5px to 20px
+    let size = Math.random() * 15 + 5;
     bubble.style.width = size + 'px';
     bubble.style.height = size + 'px';
     bubble.style.left = Math.random() * 100 + 'vw';
-    bubble.style.animationDuration = (5 + Math.random() * 5) + 's';
+    bubble.style.animationDuration = (4 + Math.random() * 6) + 's';
     document.querySelector('main').appendChild(bubble);
 }
 
-// Optional: floating hearts in overlay
-const loveOverlay = document.querySelectorAll('.love-overlay');
-loveOverlay.forEach(heart => {
+// Floating heart overlay
+document.querySelectorAll('.love-overlay').forEach(heart => {
     setInterval(() => {
         heart.style.transform = `translateY(${Math.random() * 10}px) scale(1.1)`;
         setTimeout(() => heart.style.transform = 'translateY(0) scale(1.1)', 250);
     }, 500);
 });
 
-// Click to toggle overlay
-const imgWrappers = document.querySelectorAll('.img-wrapper');
-
-imgWrappers.forEach(wrapper => {
-    let hideTimeout;
-    let isVisible = false;
-
-    wrapper.addEventListener('click', (e) => {
+// Click image overlay
+document.querySelectorAll('.img-wrapper').forEach(wrapper => {
+    let hideTimeout, isVisible = false;
+    wrapper.addEventListener('click', e => {
         e.preventDefault();
         const overlay = wrapper.querySelector('.love-overlay');
-
         if (!isVisible) {
-            // Show overlay
             overlay.style.opacity = '1';
             isVisible = true;
-
-            // Auto hide after 2 seconds
-            clearTimeout(hideTimeout);
             hideTimeout = setTimeout(() => {
                 overlay.style.opacity = '0';
                 isVisible = false;
             }, 2000);
         } else {
-            // Hide overlay immediately on second click
             overlay.style.opacity = '0';
             isVisible = false;
             clearTimeout(hideTimeout);
@@ -50,30 +39,42 @@ imgWrappers.forEach(wrapper => {
     });
 });
 
+// Magical full-screen emoji spread 🌸
 const textSection = document.querySelector('.text-section');
 const emojis = ['🌸', '💖', '✨', '💕', '🌺', '💐'];
 
-textSection.addEventListener('click', () => {
-    for (let i = 0; i < 20; i++) {
+textSection.addEventListener('click', e => {
+    const rect = textSection.getBoundingClientRect();
+    const originX = rect.left + rect.width / 2;
+    const originY = rect.top + rect.height / 2;
+
+    for (let i = 0; i < 40; i++) {
         const emoji = document.createElement('div');
         emoji.className = 'spreading-emoji';
         emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
-        const rect = textSection.getBoundingClientRect();
-        emoji.style.left = (rect.left + rect.width / 2) + 'px';
-        emoji.style.top = (rect.top + rect.height / 2) + 'px';
+        emoji.style.left = originX + 'px';
+        emoji.style.top = originY + 'px';
 
-        const angle = (Math.PI * 2 * i) / 20;
-        const distance = 300;
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = Math.random() * Math.max(window.innerWidth, window.innerHeight);
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
 
         emoji.style.setProperty('--tx', tx + 'px');
         emoji.style.setProperty('--ty', ty + 'px');
-        emoji.style.animation = 'spreadEmoji 3s ease-out forwards';
+
+        emoji.style.animationDelay = Math.random() * 0.2 + 's';
+        emoji.style.rotate = Math.random() * 360 + 'deg';
+        emoji.style.animation = `spreadEmoji 3.5s ease-out forwards`;
+
+        // add spin separately
+        emoji.animate(
+            [{ rotate: '0deg' }, { rotate: '360deg' }],
+            { duration: 2000 + Math.random() * 2000, iterations: Infinity }
+        );
 
         document.body.appendChild(emoji);
-
-        setTimeout(() => emoji.remove(), 3000);
+        setTimeout(() => emoji.remove(), 3500);
     }
 });
