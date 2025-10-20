@@ -49,3 +49,31 @@ imgWrappers.forEach(wrapper => {
         }
     });
 });
+
+const textSection = document.querySelector('.text-section');
+const emojis = ['🌸', '💖', '✨', '💕', '🌺', '💐'];
+
+textSection.addEventListener('click', () => {
+    for (let i = 0; i < 20; i++) {
+        const emoji = document.createElement('div');
+        emoji.className = 'spreading-emoji';
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        const rect = textSection.getBoundingClientRect();
+        emoji.style.left = (rect.left + rect.width / 2) + 'px';
+        emoji.style.top = (rect.top + rect.height / 2) + 'px';
+
+        const angle = (Math.PI * 2 * i) / 20;
+        const distance = 300;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+
+        emoji.style.setProperty('--tx', tx + 'px');
+        emoji.style.setProperty('--ty', ty + 'px');
+        emoji.style.animation = 'spreadEmoji 3s ease-out forwards';
+
+        document.body.appendChild(emoji);
+
+        setTimeout(() => emoji.remove(), 3000);
+    }
+});
