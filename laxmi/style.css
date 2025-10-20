@@ -40,15 +40,6 @@ main {
   animation: float 3s ease-in-out infinite;
 }
 
-.page01 h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.page01 p {
-  font-size: 1.2rem;
-}
-
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -113,17 +104,26 @@ main {
   opacity: 1;
 }
 
-/* Text section */
-.text-section {
+/* Page 05 */
+.page05 {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #ffb6c1;
+}
+
+.text-section {
+  font-size: 2rem;
   padding: 1rem;
+  background: #ffb6c1;
   border-radius: 20px;
-  font-size: 1.5rem;
   font-weight: bold;
-  text-align: center;
   cursor: pointer;
   box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
-  transition: 0.3s;
+  transition: transform 0.3s;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -134,34 +134,6 @@ main {
   box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
 }
 
-/* Emoji spread */
-.spreading-emoji {
-  position: absolute;
-  font-size: 2rem;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-  animation: spreadEmoji 3.5s ease-out forwards;
-}
-
-@keyframes spreadEmoji {
-  0% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(var(--tx), var(--ty)) scale(0);
-  }
-}
-@keyframes spinOnly {
-  from {
-    rotate: 0deg;
-  }
-  to {
-    rotate: 360deg;
-  }
-}
 /* Floating bubbles */
 .bubble {
   position: absolute;
@@ -185,5 +157,32 @@ main {
   100% {
     transform: translateY(-110vh) scale(0.5);
     opacity: 0;
+  }
+}
+/* Emoji spread */
+.spreading-emoji {
+  position: absolute;
+  font-size: 2rem;
+  pointer-events: none;
+  z-index: 9999;
+  animation: spreadEmoji 3.5s ease-out forwards;
+}
+
+@keyframes spreadEmoji {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes spinOnly {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
   }
 }/*# sourceMappingURL=style.css.map */

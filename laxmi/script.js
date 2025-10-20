@@ -18,7 +18,7 @@ document.querySelectorAll('.love-overlay').forEach(heart => {
     }, 500);
 });
 
-// Click image overlay
+// Click image overlay toggle
 document.querySelectorAll('.img-wrapper').forEach(wrapper => {
     let hideTimeout, isVisible = false;
     wrapper.addEventListener('click', e => {
@@ -39,42 +39,41 @@ document.querySelectorAll('.img-wrapper').forEach(wrapper => {
     });
 });
 
-// Magical full-screen emoji spread 🌸
+// 🌸 Full-page emoji spread without layout shift
 const textSection = document.querySelector('.text-section');
+const page05 = document.querySelector('.page05');
 const emojis = ['🌸', '💖', '✨', '💕', '🌺', '💐'];
 
-textSection.addEventListener('click', e => {
+textSection.addEventListener('click', () => {
     const rect = textSection.getBoundingClientRect();
-    const originX = rect.left + rect.width / 2;
-    const originY = rect.top + rect.height / 2;
+    const pageRect = page05.getBoundingClientRect();
+    const originX = rect.left + rect.width / 2 - pageRect.left;
+    const originY = rect.top + rect.height / 2 - pageRect.top;
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 30; i++) {
         const emoji = document.createElement('div');
         emoji.className = 'spreading-emoji';
         emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
         emoji.style.left = originX + 'px';
         emoji.style.top = originY + 'px';
+        emoji.style.position = 'absolute';
 
         const angle = Math.random() * 2 * Math.PI;
-        const distance = Math.random() * Math.max(window.innerWidth, window.innerHeight);
+        const distance = Math.random() * (Math.min(pageRect.width, pageRect.height) / 1.2);
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
 
         emoji.style.setProperty('--tx', tx + 'px');
         emoji.style.setProperty('--ty', ty + 'px');
-
-        emoji.style.animationDelay = Math.random() * 0.2 + 's';
-        emoji.style.rotate = Math.random() * 360 + 'deg';
         emoji.style.animation = `spreadEmoji 3.5s ease-out forwards`;
 
-        // add spin separately
-        emoji.animate(
-            [{ rotate: '0deg' }, { rotate: '360deg' }],
-            { duration: 2000 + Math.random() * 2000, iterations: Infinity }
-        );
+        // Spin animation
+        emoji.animate([{ rotate: '0deg' }, { rotate: '360deg' }], {
+            duration: 2000 + Math.random() * 2000,
+            iterations: Infinity
+        });
 
-        document.body.appendChild(emoji);
+        page05.appendChild(emoji);
         setTimeout(() => emoji.remove(), 3500);
     }
 });
