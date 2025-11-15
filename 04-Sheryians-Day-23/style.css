@@ -82,8 +82,7 @@ main .img-section .img2 {
 }
 main .img-section .img2 img {
   width: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 main .img-section img {
   position: absolute;

@@ -124,9 +124,7 @@ main {
   cursor: pointer;
   box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
   transition: transform 0.3s;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .text-section:hover {

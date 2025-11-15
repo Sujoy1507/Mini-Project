@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "tahoma";
+    font-weight: 300;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin centerFlex($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+main {
+    height: 100dvh;
+    width: 100dvw;
+    background-color: hsl(90, 100, 50);
+    @include centerFlex(row, space-between, center);
+    padding: 5rem;
+
+    .bttn {
+        width: 400px;
+        height: 100px;
+        @include centerFlex(row, center, center);
+        #mainBttn {
+            text-shadow: 4px 4px 5px rgba(255, 0, 0, 0.5),
+                -4px -4px 5px rgba(0, 0, 255, 0.5);
+            border-radius: 1rem;
+            border: none;
+            font-size: 2rem;
+            padding: 1rem 2.5rem;
+        }
+    }
+
+    #hero {
+        height: 99%;
+        border-radius: 2rem;
+        width: 70%;
+        @include centerFlex(column, space-evenly, center);
+
+        #team-name {
+            font-size: 4rem;
+            text-shadow: 4px 4px 5px rgba(255, 0, 0, 0.5),
+                -4px -4px 5px rgba(0, 0, 255, 0.5);
+            color: hsl(20, 100, 50);
+        }
+        #img {
+            width: 250px;
+            height: 250px;
+            #logo {
+                object-fit: contain;
+                width: 250px;
+                height: 250px;
+                border-radius: 2rem;
+                padding: 10px;
+                background: white;
+            }
+        }
+
+        #fullName {
+            font-size: 4rem;
+            text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5),
+                -4px -4px 10px rgba(0, 0, 255, 0.5);
+            color: hsl(186, 100%, 50%);
+        }
+        #captain {
+            font-size: 4rem;
+            text-shadow: 4px 4px 5px rgba(255, 255, 255, 0.5),
+                -4px -4px 10px rgba(0, 0, 0, 0.5);
+            color: hsl(64, 100%, 50%);
+        }
+        #trophy {
+            font-size: 4rem;
+            text-shadow: 4px 4px 5px rgba(255, 0, 0, 0.5),
+                -4px -4px 10px rgba(0, 0, 255, 0.5);
+            color: hsl(231, 100%, 50%);
+        }
+    }
+}
