@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "tahoma";
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+main #hero {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+main #hero #card {
+  position: relative;
+  margin: 5rem;
+  display: flex;
+  align-items: space-between;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 390px;
+  width: 263px;
+  gap: 2rem;
+  padding: 2rem;
+  background: hsl(39.62, 24.88%, 58.24%);
+  border-radius: 1rem;
+}
+main #hero #card img {
+  width: 200px;
+  border-radius: 50%;
+  border: 2px solid hsl(37.61, 100%, 60.59%);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: top;
+}
+main #hero #card h2 {
+  color: hsl(120, 100%, 9.02%);
+  font-weight: 900;
+  text-shadow: 4px 4px 6px hsl(105.88, 6.88%, 51.57%), -4px -4px 6px hsl(105.88, 6.88%, 51.57%);
+}
+main #hero #card #bttn-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2.5rem;
+}
+main #hero #card #bttn-container h3 {
+  color: crimson;
+}
+main #hero #card #bttn-container button {
+  border-radius: 1rem;
+  color: hsl(240, 100%, 29.8%);
+  background: hsla(40, 58%, 40%, 0.5);
+  font-weight: 900;
+  padding: 0.5rem 2rem;
+  border: 1px solid hsl(191.01, 99.04%, 59.02%);
+}
+main #hero #card h4 {
+  color: hsl(222, 71%, 53%);
+  font-size: 0.7rem;
+  font-weight: 900;
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}/*# sourceMappingURL=style.css.map */

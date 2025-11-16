@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "tahoma";
+    font-weight: 300;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin disFlex($jc, $ai, $fd) {
+    display: flex;
+    align-items: $ai;
+    flex-direction: $fd;
+    justify-content: $ai;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+
+    #hero {
+        width: 100%;
+        @include disFlex(center, center, column);
+
+        #card {
+            position: relative;
+            margin: 5rem;
+            @include disFlex(center, space-between, column);
+            height: 390px;
+            width: 263px;
+            gap: 2rem;
+            padding: 2rem;
+            background: hsl(39.62, 24.88%, 58.24%);
+            border-radius: 1rem;
+            img {
+                width: 200px;
+                border-radius: 50%;
+                border: 2px solid hsl(37.61, 100%, 60.59%);
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                object-position: top;
+            }
+            h2 {
+                color: hsl(120, 100%, 9.02%);
+                font-weight: 900;
+
+                text-shadow: 4px 4px 6px hsl(105.88, 6.88%, 51.57%),
+                    -4px -4px 6px hsl(105.88, 6.88%, 51.57%);
+            }
+
+            #bttn-container {
+                @include disFlex(space-between, center, row);
+                gap: 2.5rem;
+                h3 {
+                    color: crimson;
+                    // opacity: 0;
+                }
+                button {
+                    border-radius: 1rem;
+                    color: hsl(240, 100%, 29.8%);
+                    background: hsla(40, 58%, 40%, 0.5);
+                    font-weight: 900;
+                    padding: 0.5rem 2rem;
+                    border: 1px solid hsl(191.01, 99.04%, 59.02%);
+                }
+            }
+            h4 {
+                color: hsl(222, 71%, 53%);
+                font-size: 0.7rem;
+                font-weight: 900;
+                display: none;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    }
+}
