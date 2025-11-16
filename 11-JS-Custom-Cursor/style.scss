@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "tahoma";
+    font-weight: 300;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 15, 66);
+
+    h1 {
+        font-size: 250px;
+        color: white;
+        pointer-events: none;
+    }
+
+    #cursor {
+        position: absolute;
+        width: 20px;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        z-index: 1;
+        transition: top 0.1s linear, left 0.1s linear;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+}
