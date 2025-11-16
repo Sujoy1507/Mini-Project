@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "tahoma";
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  background: hsl(0, 0%, 5%);
+  padding: 1rem 0rem;
+  width: 100%;
+}
+main .imageContainer {
+  position: relative;
+  border-bottom: 3px solid hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+}
+main .imageContainer h1 {
+  color: hsl(0, 0%, 100%);
+}
+main .imageContainer:first-child {
+  border-top: 3px solid hsl(0, 0%, 100%);
+}
+main .imageContainer img {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  transform: translate(-50%, -50%);
+  transition: all linear 0.2s;
+}/*# sourceMappingURL=style.css.map */
