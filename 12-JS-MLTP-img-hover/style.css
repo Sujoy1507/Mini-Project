@@ -23,24 +23,30 @@ main .imageContainer {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding: 0 4rem;
   height: 100px;
   width: 100%;
 }
 main .imageContainer h1 {
+  font-weight: 900;
+  position: relative;
+  z-index: 8;
+  font-size: 4rem;
+  mix-blend-mode: difference;
   color: hsl(0, 0%, 100%);
 }
 main .imageContainer:first-child {
   border-top: 3px solid hsl(0, 0%, 100%);
 }
 main .imageContainer img {
-  display: none;
+  opacity: 0;
   pointer-events: none;
   position: absolute;
   height: 110px;
   width: 110px;
-  border-radius: 50%;
+  border-radius: 20%;
   object-fit: cover;
   object-position: top;
   transform: translate(-50%, -50%);
-  transition: all linear 0.2s;
+  transition: opacity linear 0.3s, left linear 0.03s, top linear 0.03s;
 }/*# sourceMappingURL=style.css.map */
