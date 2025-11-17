@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "tahoma";
+    font-weight: 300;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(0, 0, 75);
+
+    #card {
+        height: 700px;
+        width: 380px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        background: hsl(0, 0, 100);
+        border-radius: 0.5rem;
+        border: 2px solid hsl(0, 0%, 0%);
+
+        #full-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: none;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 10;
+        }
+
+        #storiyan {
+            border-bottom: 1px solid hsl(0, 0, 30);
+            width: 100%;
+            height: 100px;
+            padding: 5px;
+            display: flex;
+            justify-content: start;
+            gap: 5px;
+            align-items: center;
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .story {
+                flex-shrink: 0;
+                border-radius: 50%;
+                border: 2px solid red;
+                width: 90px;
+                height: 90px;
+                overflow: hidden;
+
+                > img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: top;
+                }
+            }
+        }
+    }
+}
