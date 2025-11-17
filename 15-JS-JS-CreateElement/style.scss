@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "tahoma";
+    font-weight: 300;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+body{
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    button{
+        background: hsl(227, 76%, 48%);
+        padding: 1rem 3rem;
+        font-size: 2rem;
+        color: #fff;
+        font-weight: 900;
+        border-radius: .5rem;
+        border: 3px solid hsl(115, 73%, 40%);
+    }
+}
