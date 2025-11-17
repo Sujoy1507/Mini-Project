@@ -48,3 +48,7 @@ storiyan.addEventListener('click',(event)=>{
     document.querySelector('#full-screen').style.display='block';
     document.querySelector('#full-screen').style.backgroundImage =`url(${arr[event.target.id].story})`;
 });
+
+document.querySelector('#full-screen').addEventListener('click',()=>{
+    document.querySelector('#full-screen').style.display='none';
+})
