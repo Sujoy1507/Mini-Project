@@ -1,201 +1,76 @@
-let main = document.querySelector('main');
-let h1 = document.querySelector('h1');
-let audioA = new Audio('./Audio/a.mp3');
-let audioB = new Audio('./Audio/b.mp3');
-let audioC = new Audio('./Audio/c.mp3');
-let audioD = new Audio('./Audio/d.mp3');
-let audioF = new Audio('./Audio/f.mp3');
-let audioG = new Audio('./Audio/g.mp3');
-let audioH = new Audio('./Audio/h.mp3');
-let audioJ = new Audio('./Audio/j.mp3');
-let audioK = new Audio('./Audio/k.mp3');
-let audioM = new Audio('./Audio/m.mp3');
-let audioN = new Audio('./Audio/n.mp3');
-let audioS = new Audio('./Audio/s.mp3');
-let audioV = new Audio('./Audio/v.mp3');
-let audioX = new Audio('./Audio/x.mp3');
-let audioZ = new Audio('./Audio/z.mp3');
+let container = document.querySelector(".container");
 
-document.addEventListener('keydown', (event) => {
+// AUDION -- PIANO NOTE
+
+const notes = [
+    { key: "z", note: "./Audio/A0.mp3" },
+    { key: "x", note: "./Audio/A1.mp3" },
+    { key: "c", note: "./Audio/A2.mp3" },
+    { key: "v", note: "./Audio/A3.mp3" },
+    { key: "b", note: "./Audio/A4.mp3" },
+    { key: "n", note: "./Audio/A5.mp3" },
+    { key: "m", note: "./Audio/A6.mp3" },
+    { key: ",", note: "./Audio/A7.mp3" },
+
+    { key: "a", note: "./Audio/C1.mp3" },
+    { key: "s", note: "./Audio/C2.mp3" },
+    { key: "d", note: "./Audio/C3.mp3" },
+    { key: "f", note: "./Audio/C4.mp3" },
+    { key: "g", note: "./Audio/C5.mp3" },
+    { key: "h", note: "./Audio/C6.mp3" },
+    { key: "j", note: "./Audio/C7.mp3" },
+    { key: "k", note: "./Audio/C8.mp3" },
+
+    { key: "q", note: "./Audio/Ds1.mp3" },
+    { key: "w", note: "./Audio/Ds2.mp3" },
+    { key: "e", note: "./Audio/Ds3.mp3" },
+    { key: "r", note: "./Audio/Ds4.mp3" },
+    { key: "t", note: "./Audio/Ds5.mp3" },
+    { key: "y", note: "./Audio/Ds6.mp3" },
+    { key: "u", note: "./Audio/Ds7.mp3" },
+
+    { key: "1", note: "./Audio/Fs1.mp3" },
+    { key: "2", note: "./Audio/Fs2.mp3" },
+    { key: "3", note: "./Audio/Fs3.mp3" },
+    { key: "4", note: "./Audio/Fs4.mp3" },
+    { key: "5", note: "./Audio/Fs5.mp3" },
+    { key: "6", note: "./Audio/Fs6.mp3" },
+    { key: "7", note: "./Audio/Fs7.mp3" },
+];
+
+for (let i = 97; i <= 122; i++) {
+    let div = document.createElement("div");
+    div.className = "piano-key";
+    div.textContent = String.fromCharCode(i);
+    container.appendChild(div);
+    div.setAttribute("data-key", div.textContent);
+}
+
+for (let i = 0; i <= 9; i++) {
+    let div = document.createElement("div");
+    div.className = "piano-key";
+    div.textContent = i;
+    container.appendChild(div);
+    div.setAttribute("data-key", div.textContent);
+}
+
+document.addEventListener("keydown", (event) => {
     let key = event.key.toLocaleLowerCase();
-    h1.textContent=event.key;
+    notes.forEach(element => {
+        if (key === element.key){
+            let audio = new Audio(element.note);
+            audio.currentTime=0;
+            audio.play();
+        }
+    });
 
-    if (key === 'a') {
-        audioA.currentTime = 0;
-        audioA.play();
-    } else if (key === 'b') {
-        audioB.currentTime = 0;
-        audioB.play();
-    } else if (key === 'c') {
-        audioC.currentTime = 0;
-        audioC.play();
-    } else if (key === 'd') {
-        audioD.currentTime = 0;
-        audioD.play();
-    } else if (key === 'f') {
-        audioF.currentTime = 0;
-        audioF.play();
-    } else if (key === 'g') {
-        audioG.currentTime = 0;
-        audioG.play();
-    } else if (key === 'h') {
-        audioH.currentTime = 0;
-        audioH.play();
-    } else if (key === 'j') {
-        audioJ.currentTime = 0;
-        audioJ.play();
-    } else if (key === 'k') {
-        audioK.currentTime = 0;
-        audioK.play();
-    } else if (key === 'm') {
-        audioM.currentTime = 0;
-        audioM.play();
-    } else if (key === 'n') {
-        audioN.currentTime = 0;
-        audioN.play();
-    } else if (key === 's') {
-        audioS.currentTime = 0;
-        audioS.play();
-    } else if (key === 'v') {
-        audioV.currentTime = 0;
-        audioV.play();
-    } else if (key === 'x') {
-        audioX.currentTime = 0;
-        audioX.play();
-    } else if (key === 'z') {
-        audioZ.currentTime = 0;
-        audioZ.play();
+
+    let div = document.querySelector(`.piano-key[data-key='${key}']`);
+
+    if (div) {
+        div.classList.add("active");
     }
-
-     else if (key === 'Enter') {
-        audioB.currentTime = 0;
-        audioB.play();
-    } else if (key === 'Backspace') {
-        audioC.currentTime = 0;
-        audioC.play();
-    } else if (key === 'Space') {
-        audioD.currentTime = 0;
-        audioD.play();
-    } else if (key === 'Tab') {
-        audioF.currentTime = 0;
-        audioF.play();
-    } else if (key === 'Shift') {
-        audioG.currentTime = 0;
-        audioG.play();
-    } else if (key === 'Control') {
-        audioH.currentTime = 0;
-        audioH.play();
-    } else if (key === 'Alt') {
-        audioJ.currentTime = 0;
-        audioJ.play();
-    } else if (key === 'Meta') {
-        audioK.currentTime = 0;
-        audioK.play();
-    } else if (key === 'Escape') {
-        audioM.currentTime = 0;
-        audioM.play();
-    } else if (key === 'CapsLock') {
-        audioN.currentTime = 0;
-        audioN.play();
-    } else if (key === 'Insert') {
-        audioS.currentTime = 0;
-        audioS.play();
-    } else if (key === 'Delete') {
-        audioV.currentTime = 0;
-        audioV.play();
-    } else if (key === 'Home') {
-        audioX.currentTime = 0;
-        audioX.play();
-    } else if (key === 'End') {
-        audioZ.currentTime = 0;
-        audioZ.play();
-    }
-
-    else if (key === 'PageUp') {
-        audioB.currentTime = 0;
-        audioB.play();
-    } else if (key === 'PageDown') {
-        audioC.currentTime = 0;
-        audioC.play();
-    } else if (key === 'PrintScreen') {
-        audioD.currentTime = 0;
-        audioD.play();
-    } else if (key === 'ScrollLock') {
-        audioF.currentTime = 0;
-        audioF.play();
-    } else if (key === 'Pause') {
-        audioG.currentTime = 0;
-        audioG.play();
-    } else if (key === 'ContextMenu') { 
-        audioH.currentTime = 0;
-        audioH.play();
-    } else if (key === 'e') {
-        audioJ.currentTime = 0;
-        audioJ.play();
-    } else if (key === 'i') {
-        audioK.currentTime = 0;
-        audioK.play();
-    } else if (key === 'l') {
-        audioM.currentTime = 0;
-        audioM.play();
-    } else if (key === 'o') {
-        audioN.currentTime = 0;
-        audioN.play();
-    } else if (key === 'p') {
-        audioS.currentTime = 0;
-        audioS.play();
-    } else if (key === 'q') {
-        audioV.currentTime = 0;
-        audioV.play();
-    } else if (key === 'r') {
-        audioX.currentTime = 0;
-        audioX.play();
-    } else if (key === 't') {
-        audioZ.currentTime = 0;
-        audioZ.play();
-    }
-
-
-    else if (key === 'u') {
-        audioJ.currentTime = 0;
-        audioJ.play();
-    } else if (key === 'w') {
-        audioK.currentTime = 0;
-        audioK.play();
-    } else if (key === 'y') {
-        audioM.currentTime = 0;
-        audioM.play();
-    } else if (key === '0') {
-        audioN.currentTime = 0;
-        audioN.play();
-    } else if (key === '1') {
-        audioS.currentTime = 0;
-        audioS.play();
-    } else if (key === '2') {
-        audioV.currentTime = 0;
-        audioV.play();
-    } else if (key === '3') {
-        audioX.currentTime = 0;
-        audioX.play();
-    } else if (key === '4') {
-        audioZ.currentTime = 0;
-        audioZ.play();
-    }
-
-    else if (key === '5') {
-        audioN.currentTime = 0;
-        audioN.play();
-    } else if (key === '6') {
-        audioS.currentTime = 0;
-        audioS.play();
-    } else if (key === '7') {
-        audioV.currentTime = 0;
-        audioV.play();
-    } else if (key === '8') {
-        audioX.currentTime = 0;
-        audioX.play();
-    } else if (key === '9') {
-        audioZ.currentTime = 0;
-        audioZ.play();
-    }
+    setTimeout(() => {
+        div.classList.remove("active");
+    }, 150);
 });
