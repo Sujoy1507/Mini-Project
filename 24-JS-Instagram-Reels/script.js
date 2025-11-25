@@ -8,7 +8,7 @@ const reels = [
         caption: "Morning vibes at the lake",
         video: "./Asset-video/Video-01.mp4",
         userProfile:
-            "https://images.unsplash.com/photo-1761839258623-e232e15f7ff3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4fHx8ZW58MHx8fHx8",
+            "https://images.unsplash.com/photo-1761839258623-e232e15f7ff3?w=600&auto=format&fit=crop&q=60",
         isShare: false,
         isFollowed: true,
     },
@@ -273,37 +273,49 @@ reels.forEach((element) => {
                                     ? '<i class="ri-heart-3-line"></i>'
                                     : '<i class="love ri-heart-3-fill"></i>'
                             }
-                    <h4>${element.likeCount}</h4>
-                    </div>
+                            <h4>${element.likeCount}</h4>
+                        </div>
+
                         <div class="comment-icon icon">
                             <i class="ri-chat-1-line"></i>
                             <h4>${element.commentCount}</h4>
                         </div>
+
                         <div class="share-icon icon">
                             <i class="ri-share-forward-line"></i>
                             <h4>${element.shareCount}</h4>
                         </div>
+
                         <div class="save-icon icon">
                             <i class="ri-download-2-fill"></i>
                         </div>
+
                         <div class="menu-icon icon">
                             <i class="ri-more-2-line"></i>
                         </div>
                     </div>
 
                     <div class="user">
-                        <img
-                            src="${element.userProfile}"
-                            alt=""
-                        />
+                        <img src="${element.userProfile}" alt="" />
                         <h2>${element.username}</h2>
-                        <button>${
-                            element.isFollowed ? "Following" : "Follow"
-                        }</button>
+                        <button>${element.isFollowed ? "Following" : "Follow"}</button>
                     </div>
+
                     <h3 class="caption">${element.caption}</h3>
                 </div>`;
 });
 
 let allReels = document.querySelector(".all-Reels");
 allReels.innerHTML = clutter;
+
+allReels.innerHTML += allReels.innerHTML;
+
+const halfHeight = allReels.scrollHeight / 2;
+
+allReels.addEventListener("scroll", () => {
+    if (allReels.scrollTop >= halfHeight) {
+        allReels.scrollTop -= halfHeight; // neeche jaate jaate half se aage gaye toh half peeche le aao
+    } else if (allReels.scrollTop <= 0) {
+        allReels.scrollTop += halfHeight; // upar se aate waqt half aage bhej do
+    }
+});
