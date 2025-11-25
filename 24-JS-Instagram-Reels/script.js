@@ -8,7 +8,7 @@ const reels = [
         caption: "Morning vibes at the lake",
         video: "./Asset-video/Video-01.mp4",
         userProfile:
-            "https://images.unsplash.com/photo-1603415526960-f7e0328f2d1d",
+            "https://images.unsplash.com/photo-1761839258623-e232e15f7ff3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4fHx8ZW58MHx8fHx8",
         isShare: false,
         isFollowed: true,
     },
@@ -261,16 +261,20 @@ const reels = [
     },
 ];
 
-let clutter=''
-reels.forEach(element => {
-    clutter+=`<div class="reel">
+let clutter = "";
+reels.forEach((element) => {
+    clutter += `<div class="reel">
                     <video autoplay loop muted src="${element.video}"></video>
 
                     <div class="right">
                         <div class="love-icon icon">
-                            <i class="ri-heart-3-line"></i>
-                            <h4>${element.likeCount}</h4>
-                        </div>
+                            ${
+                                element.isLiked
+                                    ? '<i class="ri-heart-3-line"></i>'
+                                    : '<i class="love ri-heart-3-fill"></i>'
+                            }
+                    <h4>${element.likeCount}</h4>
+                    </div>
                         <div class="comment-icon icon">
                             <i class="ri-chat-1-line"></i>
                             <h4>${element.commentCount}</h4>
@@ -293,10 +297,13 @@ reels.forEach(element => {
                             alt=""
                         />
                         <h2>${element.username}</h2>
-                        <button>Follow</button>
+                        <button>${
+                            element.isFollowed ? "Following" : "Follow"
+                        }</button>
                     </div>
-                </div>`
+                    <h3 class="caption">${element.caption}</h3>
+                </div>`;
 });
 
-let allReels = document.querySelector('.all-Reels');
-allReels.innerHTML=clutter;
+let allReels = document.querySelector(".all-Reels");
+allReels.innerHTML = clutter;

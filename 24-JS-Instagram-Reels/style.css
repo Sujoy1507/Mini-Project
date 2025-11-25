@@ -26,6 +26,7 @@ main .all-Reels {
   height: 100%;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 main .all-Reels::-webkit-scrollbar {
   display: none;
@@ -69,9 +70,12 @@ main .all-Reels .reel .right .icon {
   align-items: center;
   flex-direction: column;
 }
+main .all-Reels .reel .right .love {
+  color: hsl(0, 100%, 50%);
+}
 main .all-Reels .reel .user {
   padding: 1rem;
-  bottom: 0;
+  bottom: 8%;
   left: 0;
   color: hsl(0, 0%, 100%);
   position: absolute;
@@ -91,4 +95,13 @@ main .all-Reels .reel .user button {
   color: hsl(0, 0%, 100%);
   padding: 0.2rem 0.8rem;
   border-radius: 0.3rem;
+}
+main .all-Reels .reel .caption {
+  font-size: 0.8rem;
+  padding: 1rem;
+  opacity: 0.7;
+  bottom: 3%;
+  left: 0;
+  color: hsl(0, 0%, 100%);
+  position: absolute;
 }/*# sourceMappingURL=style.css.map */
