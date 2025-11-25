@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "tahoma";
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  width: 100dvw;
+  height: 100dvh;
+  background: linear-gradient(to right, hsl(0, 0%, 0%), hsla(0, 0%, 0%, 0.827), hsl(0, 0%, 0%));
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1rem;
+}
+main .all-Reels {
+  width: 400px;
+  margin: auto;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+main .all-Reels::-webkit-scrollbar {
+  display: none;
+}
+main .all-Reels .reel {
+  border-radius: 0.4rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  aspect-ratio: 9/16;
+  position: relative;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+main .all-Reels .reel > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main .all-Reels .reel .right {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  flex-direction: column;
+  right: 0;
+  color: hsl(0, 0%, 100%);
+}
+main .all-Reels .reel .right h4 {
+  font-size: 0.8rem;
+}
+main .all-Reels .reel .right i {
+  font-size: 2rem;
+}
+main .all-Reels .reel .right .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main .all-Reels .reel .user {
+  padding: 1rem;
+  bottom: 0;
+  left: 0;
+  color: hsl(0, 0%, 100%);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+main .all-Reels .reel .user > img {
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+main .all-Reels .reel .user button {
+  border: 2px solid hsl(0, 0%, 100%);
+  background: transparent;
+  color: hsl(0, 0%, 100%);
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.3rem;
+}/*# sourceMappingURL=style.css.map */
