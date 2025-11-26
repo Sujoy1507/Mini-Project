@@ -724,10 +724,10 @@ function addData(params) {
     let clutter = "";
     reels.forEach((element, index) => {
         clutter += ` <div class="reel">
-            <video autoplay loop ${element.isMuted ? "" : "muted"} src="${
+            <video autoplay loop ${element.isMuted ? 'muted' : ''} src="${
             element.video
         }"></video>
-            <i id="${index}" class=" mute ri-volume-mute-fill"></i>
+            <div id='${index}' class="mute"><i class="ri-volume-mute-fill"></i></div>
             <div class="right">
                 <div id="${index}" class="like">
                     <h6 class="love-icon icon">
@@ -804,15 +804,18 @@ allReels.addEventListener("click", function (event) {
         addData();
     }
 
+const muteBtn = event.target.closest(".mute");
 
-    if (event.target.className === "mute") {
-        if (!reels[event.target.id].isMuted) {
-            reels[event.target.id].isMuted = true;
-        } else {
-            reels[event.target.id].isMuted = false;
-        }
+        if (muteBtn) {
+        const index = muteBtn.id;
+        reels[index].isMuted = !reels[index].isMuted;
         addData();
+        return;
     }
+
+
+
+    
 
     let backbttn = document.querySelector(".back");
     let allCommentsAfterClick = document.querySelector(".comments");
