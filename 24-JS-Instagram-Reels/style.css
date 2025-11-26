@@ -13,12 +13,83 @@ body {
 }
 
 main {
+  position: relative;
   width: 100dvw;
   height: 100dvh;
   background: linear-gradient(to right, hsl(0, 0%, 0%), hsla(0, 0%, 0%, 0.827), hsl(0, 0%, 0%));
   overflow-x: hidden;
   overflow-y: auto;
   padding: 1rem;
+}
+main .back {
+  display: none;
+  z-index: 10;
+  background-color: hsla(0, 0%, 0%, 0.326);
+  border-radius: 0.3rem;
+  position: absolute;
+  top: 0;
+  font-size: 2rem;
+  left: 40%;
+  color: white;
+}
+main .comments {
+  display: none;
+  background: hsl(0, 0%, 100%);
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 90%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  overflow-y: auto;
+}
+main .comments .comment12 {
+  margin-bottom: 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 65% 1fr 1fr;
+  grid-template-areas: "img name day ." "img line . love" ". likeCount reply .";
+}
+main .comments .comment12 .name {
+  padding-left: 0.5rem;
+  grid-area: name;
+  font-size: 1rem;
+}
+main .comments .comment12 .lines {
+  padding: 0.5rem;
+  grid-area: line;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+main .comments .comment12 .comment-img {
+  grid-area: img;
+  width: 45px;
+  aspect-ratio: 1/1;
+  padding: 0.2rem;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+}
+main .comments .comment12 .day {
+  grid-area: day;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+main .comments .comment12 .likes {
+  grid-area: love;
+  padding: 0.3rem;
+}
+main .comments .comment12 .buttomComment {
+  grid-area: likeCount;
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.8rem;
 }
 main .all-Reels {
   width: 400px;
@@ -72,6 +143,10 @@ main .all-Reels .reel .right .icon {
 }
 main .all-Reels .reel .right .love {
   color: hsl(0, 100%, 50%);
+}
+main .all-Reels .reel .right > div h6,
+main .all-Reels .reel .right > div h4 {
+  pointer-events: none;
 }
 main .all-Reels .reel .user {
   padding: 1rem;
