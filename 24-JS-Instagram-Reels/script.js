@@ -727,7 +727,9 @@ function addData(params) {
             <video autoplay loop ${element.isMuted ? 'muted' : ''} src="${
             element.video
         }"></video>
-            <div id='${index}' class="mute"><i class="ri-volume-mute-fill"></i></div>
+            <div id='${index}' class="mute">
+            ${element.isMuted?'<i class="ri-volume-mute-fill"></i>':'<i class="ri-volume-up-fill"></i>'}
+            </div>
             <div class="right">
                 <div id="${index}" class="like">
                     <h6 class="love-icon icon">
