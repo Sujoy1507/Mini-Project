@@ -26,13 +26,32 @@ main {
     overflow-y: auto;
     padding: 1rem;
 
+    .mute{
+        padding: 0.3rem;
+        z-index: 10;
+        background-color: hsla(0, 0%, 0%, 0.326);
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        font-size: 1.3rem;
+        right: 0;
+        margin-right: 1rem;
+        margin-top: 0.3rem;
+        color: white;
+        cursor: pointer;
+
+        &:active{
+            scale: .95;
+        }
+    }
+
     .back {
         display: none;
         z-index: 10;
         background-color: hsla(0, 0%, 0%, 0.326);
         border-radius: .3rem;
         position: absolute;
-        top: 0;
+        top: 2%;
         font-size: 2rem;
         left: 40%;
         color: white;
@@ -43,15 +62,19 @@ main {
         background: hsl(0, 0%, 100%);
         z-index: 10;
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 50%;
-        width: 400px;
+        width: 375px;
         height: 90%;
         border-radius: 0.5rem;
         padding: 1rem;
         transform: translate(-50%, -50%);
         margin: auto;
         overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         .comment12 {
             margin-bottom: 2rem;
@@ -106,7 +129,7 @@ main {
     }
 
     .all-Reels {
-        width: 400px;
+        width: 375px;
         margin: auto;
         height: 100%;
         overflow-y: scroll;
@@ -121,7 +144,7 @@ main {
             border-radius: 0.4rem;
             overflow: hidden;
             margin-bottom: 1rem;
-            aspect-ratio: 9/16;
+            aspect-ratio: 8.5/16;
             position: relative;
             width: 100%;
             scroll-snap-align: start;

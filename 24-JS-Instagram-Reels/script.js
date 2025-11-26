@@ -1,5 +1,6 @@
 const reels = [
     {
+        isMuted: true,
         username: "arjun_mehta",
         likeCount: 1430,
         isLiked: false,
@@ -13,6 +14,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "riya_sharma",
         likeCount: 18900,
         isLiked: true,
@@ -26,6 +28,7 @@ const reels = [
         isFollowed: false,
     },
     {
+        isMuted: true,
         username: "travelwithanup",
         likeCount: 8200,
         isLiked: false,
@@ -39,6 +42,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "codebykriti",
         likeCount: 2500,
         isLiked: false,
@@ -52,6 +56,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "fitnesswithrahul",
         likeCount: 12800,
         isLiked: true,
@@ -65,6 +70,7 @@ const reels = [
         isFollowed: false,
     },
     {
+        isMuted: true,
         username: "tania_art",
         likeCount: 4300,
         isLiked: false,
@@ -78,6 +84,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "cityfoodbuzz",
         likeCount: 9200,
         isLiked: true,
@@ -91,6 +98,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "deep_music",
         likeCount: 5800,
         isLiked: false,
@@ -104,6 +112,7 @@ const reels = [
         isFollowed: false,
     },
     {
+        isMuted: true,
         username: "nature_lover",
         likeCount: 21300,
         isLiked: true,
@@ -117,6 +126,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "tech_updates",
         likeCount: 3700,
         isLiked: false,
@@ -130,6 +140,7 @@ const reels = [
         isFollowed: false,
     },
     {
+        isMuted: true,
         username: "cookwithayushi",
         likeCount: 6100,
         isLiked: true,
@@ -143,6 +154,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "wander_soul",
         likeCount: 15800,
         isLiked: false,
@@ -156,6 +168,7 @@ const reels = [
         isFollowed: false,
     },
     {
+        isMuted: true,
         username: "gamingwithdev",
         likeCount: 4800,
         isLiked: true,
@@ -169,6 +182,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "dance_vibes",
         likeCount: 22200,
         isLiked: true,
@@ -182,6 +196,7 @@ const reels = [
         isFollowed: false,
     },
     {
+        isMuted: true,
         username: "bookish_priya",
         likeCount: 3100,
         isLiked: false,
@@ -195,6 +210,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "carfanatic",
         likeCount: 13200,
         isLiked: true,
@@ -208,6 +224,7 @@ const reels = [
         isFollowed: false,
     },
     {
+        isMuted: true,
         username: "petworld",
         likeCount: 9800,
         isLiked: false,
@@ -221,6 +238,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "minimal_life",
         likeCount: 5100,
         isLiked: false,
@@ -234,6 +252,7 @@ const reels = [
         isFollowed: false,
     },
     {
+        isMuted: true,
         username: "photographyrush",
         likeCount: 19700,
         isLiked: true,
@@ -247,6 +266,7 @@ const reels = [
         isFollowed: true,
     },
     {
+        isMuted: true,
         username: "lifeofcoder",
         likeCount: 3500,
         isLiked: false,
@@ -704,8 +724,10 @@ function addData(params) {
     let clutter = "";
     reels.forEach((element, index) => {
         clutter += ` <div class="reel">
-            <video autoplay loop muted src="${element.video}"></video>
-
+            <video autoplay loop ${element.isMuted ? "" : "muted"} src="${
+            element.video
+        }"></video>
+            <i id="${index}" class=" mute ri-volume-mute-fill"></i>
             <div class="right">
                 <div id="${index}" class="like">
                     <h6 class="love-icon icon">
@@ -771,6 +793,7 @@ allReels.addEventListener("click", function (event) {
             reels[event.target.id].likeCount--;
             reels[event.target.id].isLiked = false;
         }
+        addData();
     }
     if (event.target.className === "follow") {
         if (!reels[event.target.id].isFollowed) {
@@ -778,23 +801,36 @@ allReels.addEventListener("click", function (event) {
         } else {
             reels[event.target.id].isFollowed = false;
         }
+        addData();
     }
-    let backbttn = document.querySelector('.back');
+
+
+    if (event.target.className === "mute") {
+        if (!reels[event.target.id].isMuted) {
+            reels[event.target.id].isMuted = true;
+        } else {
+            reels[event.target.id].isMuted = false;
+        }
+        addData();
+    }
+
+    let backbttn = document.querySelector(".back");
     let allCommentsAfterClick = document.querySelector(".comments");
 
     let commentBox = event.target.closest(".comment");
     if (commentBox) {
-
         commentBox.style.background = "red";
-        allComments(); 
+        allComments();
         allCommentsAfterClick.style.display = "block";
-        backbttn.style.display='block';
+        backbttn.style.display = "block";
+        addData();
     }
 
-backbttn.addEventListener('click',()=>{
-    allCommentsAfterClick.style.display = "none";
-        backbttn.style.display='none';
-})
+    backbttn.addEventListener("click", () => {
+        allCommentsAfterClick.style.display = "none";
+        backbttn.style.display = "none";
+        addData();
+    });
 
-    addData();
+    
 });
