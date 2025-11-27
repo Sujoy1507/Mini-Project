@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "tahoma";
+    font-weight: 300;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --x: 220px;
+    --y: 200px;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    section {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        background: hsl(0, 0, 0);
+        color: hsl(0, 0, 100);
+
+        .para1 {
+            font-size: 4.7rem;
+            color: hsl(140, 100%, 50%);
+        }
+        .para2 {
+            font-size: 3rem;
+            color: hsl(200, 100%, 60%);
+        }
+        .para3 {
+            font-size: 3rem;
+            color: hsl(300, 100%, 65%);
+        }
+        .para4 {
+            font-size: 2.7rem;
+            color: hsl(45, 100%, 60%);
+        }
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .cursor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+
+        background: radial-gradient(
+            circle 100px at var(--x) var(--y),
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) 95%,
+            rgba(0, 0, 0, 0.938) 100%
+        );
+    }
+}
