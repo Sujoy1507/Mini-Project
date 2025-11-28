@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "tahoma";
+  font-weight: 300;
+  color: hsl(0, 0%, 100%);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  background: hsl(0, 0%, 20%);
+  aspect-ratio: 16/7.73;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 5vw 10vw;
+}
+main .left {
+  width: 40%;
+  aspect-ratio: 1/1;
+  background: hsl(10, 100%, 50%);
+  border-radius: 0.4rem;
+}
+main .right {
+  width: 40%;
+  border-radius: 0.4rem;
+  aspect-ratio: 1/1;
+  padding: 0.4rem;
+}
+main .right .all-songs {
+  margin-top: 2rem;
+  height: 85%;
+  border-radius: 0.4rem;
+}
+main .right .all-songs .song-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid hsl(0, 0%, 100%);
+}
+main .right .all-songs .song-card .part1 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+main .right .all-songs .song-card .part1 > img {
+  width: 50px;
+  height: 50px;
+}/*# sourceMappingURL=style.css.map */

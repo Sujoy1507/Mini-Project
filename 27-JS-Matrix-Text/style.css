@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "tahoma";
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  background-color: hsl(0, 0%, 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+main .text1 {
+  color: hsl(60, 100%, 50%);
+  font-size: 3rem;
+}
+main .text2 {
+  color: hsl(120, 100%, 50%);
+  font-size: 3rem;
+}
+main .text3 {
+  color: hsl(180, 100%, 50%);
+  font-size: 3rem;
+}
+main .text4 {
+  color: hsl(240, 100%, 50%);
+  font-size: 3rem;
+}/*# sourceMappingURL=style.css.map */
