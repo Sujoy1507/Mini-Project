@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "tahoma";
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  background: hsl(0, 1%, 35%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main:hover {
+  anchor-name: --card;
+}
+main .box {
+  height: 50px;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: hsl(40, 90%, 60%);
+  text-transform: uppercase;
+}
+main .box:hover {
+  position: absolute;
+  position-anchor: --card;
+  top: anchor(bottom);
+  left: anchor(left);
+}
+main .box1 {
+  background: hsl(40, 90%, 60%);
+}
+main .box2 {
+  background: hsl(126, 90%, 60%);
+}
+main .box3 {
+  background: hsl(241, 90%, 60%);
+}/*# sourceMappingURL=style.css.map */

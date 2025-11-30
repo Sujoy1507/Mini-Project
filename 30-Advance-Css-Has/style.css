@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "tahoma";
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: hsl(0, 0%, 0%);
+  width: 100%;
+  height: 100%;
+}
+main:has(.box:hover) .box {
+  transform: scale(0.8);
+}
+main .box {
+  height: 100px;
+  width: 100px;
+  transition: all 0.3s linear;
+}
+main .box:hover {
+  transform: scale(1.2) !important;
+}
+main .red {
+  background: hsl(20, 100%, 50%);
+}
+main .green {
+  background: hsl(80, 100%, 50%);
+}
+main .blue {
+  background: hsl(180, 100%, 50%);
+}/*# sourceMappingURL=style.css.map */

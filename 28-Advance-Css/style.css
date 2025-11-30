@@ -41,15 +41,24 @@ main .box {
   height: 600px;
   display: flex;
   border-radius: 0.7rem;
-  border: 5px solid hsla(0, 0%, 0%, 0);
-  box-shadow: 0 0 80px hsl(330, 100%, 50%);
+  border: 0px solid hsla(0, 0%, 0%, 0);
+  box-shadow: 0 0 0px hsl(330, 100%, 50%);
   background: linear-gradient(hsl(0, 0%, 0%), hsl(0, 0%, 0%)) padding-box, conic-gradient(from var(--rotate), black, hsl(330, 100%, 50%), black) border-box;
   justify-content: end;
   align-items: center;
   overflow: hidden;
   flex-direction: column;
   color: hsl(0, 0%, 100%);
-  animation: rotateBorder 5s linear infinite;
+  animation: rotateBorder 3s linear infinite;
+  animation-play-state: paused;
+  transition: all 0.3s linear;
+}
+main .box:hover {
+  animation-play-state: running;
+  border-width: 5px;
+  box-shadow: 0 0 80px hsl(330, 100%, 50%), -5px -5px 20px hsl(300, 100%, 50%);
+  color: hsl(330, 100%, 50%);
+  text-shadow: 0 0 10px hsl(330, 100%, 50%);
 }
 main .box img {
   position: absolute;

@@ -12,16 +12,19 @@ body {
     width: 100%;
 }
 @property --rotate {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
 
 @keyframes rotateBorder {
-  from { --rotate: 0deg; }
-  to   { --rotate: 360deg; }
+    from {
+        --rotate: 0deg;
+    }
+    to {
+        --rotate: 360deg;
+    }
 }
-
 
 main {
     width: 100%;
@@ -32,8 +35,6 @@ main {
     align-items: start;
     padding-top: 4rem;
 
-
-
     .box {
         position: relative;
         padding: 1rem;
@@ -41,11 +42,16 @@ main {
         height: 600px;
         display: flex;
         border-radius: 0.7rem;
-        border: 5px solid hsla(0, 0%, 0%, 0);
-        box-shadow: 0 0 80px hsl(330, 100%, 50%);
+        border: 0px solid hsla(0, 0%, 0%, 0);
+        box-shadow: 0 0 0px hsl(330, 100%, 50%);
 
         background: linear-gradient(hsl(0, 0%, 0%), hsl(0, 0%, 0%)) padding-box,
-            conic-gradient(from var(--rotate) ,black, hsl(330, 100%, 50%), black)
+            conic-gradient(
+                    from var(--rotate),
+                    black,
+                    hsl(330, 100%, 50%),
+                    black
+                )
                 border-box;
 
         justify-content: end;
@@ -53,7 +59,17 @@ main {
         overflow: hidden;
         flex-direction: column;
         color: hsl(0, 0, 100);
-        animation: rotateBorder 5s linear infinite;
+        animation: rotateBorder 3s linear infinite;
+        animation-play-state: paused;
+        transition: all .3s linear;
+
+        &:hover {
+            animation-play-state: running;
+            border-width: 5px;
+            box-shadow: 0 0 80px hsl(330, 100%, 50%) ,-5px -5px 20px hsl(300, 100, 50);
+            color: hsl(330, 100%, 50%);
+            text-shadow: 0 0 10px hsl(330, 100%, 50%);
+        }
 
         img {
             position: absolute;
