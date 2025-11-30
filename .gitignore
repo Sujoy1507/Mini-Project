@@ -1,0 +1,9 @@
+*.zip
+*.exe
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.psd
+*.rar
+node_modules/
