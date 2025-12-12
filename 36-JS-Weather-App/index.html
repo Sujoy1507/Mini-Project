@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Punchy Weather</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main class="card" role="region" aria-label="Weather card">
+            <header class="card-top">
+                <div class="brand">
+                    <i
+                        class="ri-sun-cloudy-fill brand-icon"
+                        aria-hidden="true"
+                    ></i>
+                    <span class="brand-title">BrightSky</span>
+                </div>
+            </header>
+
+            <form
+                class="search"
+                onsubmit="return false"
+                aria-label="City search (static)"
+            >
+                <input
+                    class="search-input city"
+                    type="text"
+                    placeholder="Enter city"
+                    aria-label="City name"
+                />
+                <button class="search-btn" type="button" aria-label="Search">
+                    Search
+                </button>
+            </form>
+
+            <section class="temp" aria-live="polite">
+                <div class="temp-big"><span class="deg">26</span>°C</div>
+                <div class="temp-small">Feels like <span>28</span>°C</div>
+            </section>
+
+            <section class="stats" aria-label="Weather stats">
+                <div class="stat">
+                    <div class="label">Humidity</div>
+                    <div class="value"><span>00</span>%</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Wind</div>
+                    <div class="value"><span>00</span> km/h</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Sunrise</div>
+                    <div class="value">6:12</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Sunset</div>
+                    <div class="value">17:56</div>
+                </div>
+            </section>
+
+            <div class="divider" aria-hidden="true">
+                <svg
+                    viewBox="0 0 1200 60"
+                    preserveAspectRatio="none"
+                    role="img"
+                    focusable="false"
+                >
+                    <path
+                        d="M0 30 C150 10 350 50 600 30 C850 10 1050 50 1200 30 L1200 60 L0 60 Z"
+                    />
+                </svg>
+            </div>
+
+            <footer class="card-foot">
+                Developed with care © 2025
+                <span class="credit">Sujoy Saha</span>
+            </footer>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>

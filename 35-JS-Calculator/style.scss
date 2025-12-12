@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    font-weight: 300;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --bg-main: hsl(52, 100%, 92%);
+    --bg-body: hsl(160, 100%, 90%);
+    --bg-display: hsl(190, 100%, 88%);
+    --switch-bg-off: hsl(200, 100%, 85%);
+    --switch-bg-on: hsl(150, 100%, 50%);
+    --switch-bg-hover: hsl(340, 100%, 70%);
+
+    --btn-primary: hsl(200, 100%, 55%);
+    --btn-secondary: hsl(340, 100%, 60%);
+    --btn-accent: hsl(120, 100%, 45%);
+
+    --btn-primary-hover: hsl(200, 100%, 65%);
+    --btn-secondary-hover: hsl(340, 100%, 70%);
+    --btn-accent-hover: hsl(120, 100%, 55%);
+
+    --border-light: hsl(0, 0%, 80%);
+    --border-strong: hsl(200, 100%, 50%);
+
+    --text-dark: hsl(210, 20%, 15%);
+    --text-light: hsl(0, 0%, 100%);
+    --text-accent: hsl(340, 100%, 50%);
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .body {
+        width: 350px;
+        background: var(--bg-body);
+        border-radius: 0.5rem;
+        padding: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+
+        .display {
+            width: 100%;
+            min-height: 4.5rem;
+            background: var(--bg-display);
+            border-radius: 0.4rem;
+            padding: 0.6rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 0.1rem;
+            color: var(--text-dark);
+
+            .result {
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+
+            .first-val,
+            .second-val {
+                font-size: 0.8rem;
+                opacity: 0.7;
+            }
+        }
+
+        .switches {
+            display: grid;
+            width: 100%;
+            gap: 0.6rem;
+            padding: 0.8rem;
+            background: var(--switch-bg-off);
+            border-radius: 0.8rem;
+            box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.08);
+
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas:
+                "clear ac multply devide"
+                "seven eight nine plus"
+                "four five six minus"
+                "one two three enter"
+                "zero zero dot enter";
+            align-items: stretch;
+
+            .key {
+                background: var(--btn-primary);
+                color: var(--text-light);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.8rem 0;
+                font-weight: 600;
+                border: 1px solid var(--border-light);
+                border-radius: 0.6rem;
+                user-select: none;
+                font-size: 1.05rem;
+                min-height: 3rem;
+                transition: 0.12s ease;
+
+                &:hover {
+                    background: var(--btn-primary-hover);
+                    transform: translateY(-2px);
+                    cursor: pointer;
+                }
+
+                &:active {
+                    transform: translateY(0);
+                    transition: 0.06s;
+                }
+
+                i {
+                    font-size: 1.05rem;
+                    line-height: 1;
+                }
+            }
+
+            .enter {
+                grid-area: enter;
+            }
+            .operator-devide {
+                grid-area: devide;
+            }
+            .operator-multply {
+                grid-area: multply;
+            }
+            .operator-minus {
+                grid-area: minus;
+            }
+            .operator-plus {
+                grid-area: plus;
+            }
+
+            .key7 {
+                grid-area: seven;
+            }
+            .key8 {
+                grid-area: eight;
+            }
+            .key9 {
+                grid-area: nine;
+            }
+
+            .key4 {
+                grid-area: four;
+            }
+            .key5 {
+                grid-area: five;
+            }
+            .key6 {
+                grid-area: six;
+            }
+
+            .key1 {
+                grid-area: one;
+            }
+            .key2 {
+                grid-area: two;
+            }
+            .key3 {
+                grid-area: three;
+            }
+
+            .key0 {
+                grid-area: zero;
+            }
+            .key-dot {
+                grid-area: dot;
+            }
+
+            .clear {
+                grid-area: clear;
+            }
+            .all-clear {
+                grid-area: ac;
+            }
+        }
+    }
+}
